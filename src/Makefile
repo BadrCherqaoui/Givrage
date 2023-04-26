@@ -29,4 +29,4 @@ all : $(PROG)
 # Supprime l'exécutable, les fichiers binaires (.o) et les fichiers
 # temporaires de sauvegarde (~)
 clean :
-	rm -f *.o *~ Affichage/*.dat  $(PROG) 
+	rm -f *.o *~ ../Affichage/*.dat  $(PROG) 

@@ -44,7 +44,7 @@ void recherche(vector<vector<double>> tab_goutte,vector<vector<int>> tab_obstacl
     double dy, ds, beta, s=0; 
 
     ofstream mon_flux, mon_flux_entoure; 
-    mon_flux.open("Resultats/beta_en_fonction_de_s", ios::app); 
+    mon_flux.open("../Resultats/beta_en_fonction_de_s", ios::app); 
    
 
     for (int j=0; j<n_goutte-1; j++){

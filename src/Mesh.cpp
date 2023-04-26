@@ -57,7 +57,7 @@ void lecture_obstacle(string fichier, vector<vector<double>> tab_noeud, vector<v
     }
 
     ofstream mon_flux_out; 
-    mon_flux_out.open("Affichage/Obstacle.dat", ios::out); 
+    mon_flux_out.open("../Affichage/Obstacle.dat", ios::out); 
 
     
     for(int i = 0; i<nb_cylinder; i++){

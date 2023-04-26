@@ -1,0 +1,22 @@
+2d/3d 
+2
+sol_initial_moyen
+-0.5 -0.05 70.0 0.
+rho
+1000
+d_moyen 
+50e-6
+t0
+0
+dt 
+1e-5
+tmax 
+0.0096
+mu_a 
+18.5e-6
+Interpolation_choisie_(vecteur/moyenne/poids)
+v
+Mesh
+../Mesh/mesh_tri_dim.vtk
+Flow
+../Mesh/mesh_tri_dim.su2

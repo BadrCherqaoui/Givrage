@@ -557,7 +557,7 @@ void goutte::advance(std::vector<std::vector<int>> tab_obstacle, std::vector<std
         n_impact = k; 
     }
     
-    mon_flux.open("Affichage/Resultats_"+to_string(_id)+ "_"+ _choix_interpolation + ".dat", ios::out);
+    mon_flux.open("../Affichage/Resultats_"+to_string(_id)+ "_"+ _choix_interpolation + ".dat", ios::out);
     for(int i = 0; i<(n_impact/every_points); i++){
         for(int j = 0;j<2*dim+2; j++){
             mon_flux << save_sol[i][j] << " "; 
@@ -598,7 +598,7 @@ void goutte::advance(std::vector<std::vector<int>> tab_obstacle, std::vector<std
         cout << "Impact numérique :   " << impact[0] << " " << impact[1] << endl;
 
         std::ofstream mon_flux2;
-        mon_flux2.open("Affichage/Impact_"+std::to_string(_id)+".dat", std::ios::out);
+        mon_flux2.open("../Affichage/Impact_"+std::to_string(_id)+".dat", std::ios::out);
         for(int i = 0; i<dim; i++){
             _pos_imp[i] = impact[i];
             mon_flux2 << _pos_imp[i] << " ";  
