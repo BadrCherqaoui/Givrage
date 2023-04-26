@@ -1,0 +1,94 @@
+========================================================================================== 
+============================== Explication rapide des fichier ============================
+========================================================================================== 
+ 
+Le fichier "goutte.cpp" : 
+    Fonction d'initialisation des éléments en lien avec la goutte 
+    Lance la résolution de l'équation pour un certain temps t_max 
+    Fonction d'interpolation de la vitesse 
+    Fonction calculant l'intersection entre la trajectoire de la goutte et une edge de l'obstacle
+
+Le fichier "mesh.cpp" : 
+    Fonction de recherche de goutte 
+    Fonction de recherche de goutte optimiser (recherche que dans les voisins)
+    Fonction de lecture de maillage 
+    Fonction de lecture d'obstacle
+
+Le fichier "captation.cpp" : 
+    Fonction permettant de calculer la courbe beta : 
+        pour le calcul de beta, il faut trouver un noeud du maillage de l'obstacle entouré par deux impacts de goutte 
+        beta = (distance entre les deux impact)/(distance entre les deux positions initales des deux gouttes)
+        puis calcule de s : la distance de ce point avec le point de stagnation 
+        puis on obtient beta en fonction s 
+
+Le fichier "operations.cpp" : 
+    Fonction pour des opérations vectoriels surtout 
+
+Le fichier "timescheme.cpp" : 
+    Fonction avec RK4 
+    Fonction importante pour la modélisation 
+
+
+
+
+========================================================================================== 
+============================== Pour lancer le code =======================================
+========================================================================================== 
+
+- make clean 
+- make 
+- make run (changer dans le makefile le nombre de procs)
+
+
+
+========================================================================================== 
+============================== Pour les parametres =======================================
+========================================================================================== 
+
+Dans param_goutte.data il y a plusieurs informations que l'on peut initialiser : 
+    - 2d ou 3d (Mais le 3d n'est pas fonctionnel par manque de temps)
+    - x_init, y_init, vx_init, vy_init 
+    - densité volumique 
+    - diamêtre de la goutte envoyé 
+    - dt (qui sera changé s'il n'est pas inférieur à la CFL)
+    - temps maximum 
+    - Type d'interpolation - v : vecteur vitesse projeté dans le triangle où se trouve la goutte
+                           - m : interpolation moyenne dans le triangle 
+                           - p : interpolation en fonction de la distance au sommet du triangle 
+    - Le fichier vtk avec le maillage 
+    - Le fichier su2 avec les informations aux sommets des triangles (vitesse, densité)
+
+
+
+========================================================================================== 
+============ Pour le choix des fichiers sont dans le dossier Mesh  =======================
+========================================================================================== 
+
+- Selectionner toto.vtk et toto.su2 
+- Il y a 3 fichiers : 
+
+                    - mesh_tri_dim qui est la trajectoire d'une goutte autour d'un cylindre dans un champ eulérien 
+                    - NACA0012_flow_AOA_0 qui est la trajectoire d'une goutte autour d'une aile NACA0012 dans un champ eulérien incliné à 0 degré
+                    - NACA0012_flow_AOA_4 qui est la trajectoire d'une goutte autour d'une aile NACA0012 dans un champ eulérien incliné à 4 degré
+
+
+
+========================================================================================== 
+=== Pour visualiser la solution, il suffit d'aller sur gnuplot et lancer la commande : ===
+========================================================================================== 
+
+- load "plot_2D.txt" 
+
+
+
+========================================================================================== 
+========= Il y a aussi des options que l'on peut changer dans le code en brut : ==========
+========================================================================================== 
+
+Dans le main : 
+    - Le nombre de gouttes choisis (ligne 76)
+
+Dans "goutte.cpp" : 
+    - Positions et vitesses initials plus random des gouttes (Ligne 42)
+
+
