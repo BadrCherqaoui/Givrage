@@ -1,0 +1,16 @@
+set title "Gouttes autour d'un cercle"
+set xlabel "x [m]"
+set ylabel "y [m]"
+
+set key outside
+unset key
+
+
+plot for [i=0:50] "Affichage/Resultats_".i."_v.dat" u 2:3 ls 2 linecolor rgb "dark-green" pointsize 0.85 t " " 
+#replot for [i=1:15] "Affichage/Resultats_".i."_p.dat" u 2:3 with linespoints ls 3 linecolor rgb "dark-blue" pointsize 0.85 t "goutte ".i." poids" 
+
+replot for [i=0:50] "Affichage/Impact_".i.".dat" pointsize 1.2
+
+
+#replot for [i=1:15] "Affichage/Lignes_niveaux_".i.".dat" with lines linecolor rgb "black" t "lignes de niveaux"
+replot "Affichage/Obstacle.dat" linecolor rgb "grey50" pointsize 0.45 t "cercle"
